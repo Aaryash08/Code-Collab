@@ -5,10 +5,10 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Copy the package.json and package.lock files
-COPY package.json package-lock.json ./
+COPY package.json yarn.lock ./
 
 # Install dependencies
-RUN npm install
+RUN yarn install
 
 # Copy the rest of the application code
 COPY . .
@@ -22,4 +22,4 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Start the server
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
